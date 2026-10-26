@@ -1,0 +1,55 @@
+name: collect
+
+on:
+  schedule:
+    # Каждые 3 часа на :17 UTC — не ровно на :00, там очередь GitHub перегружена.
+    - cron: '17 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # коммит data/
+  actions: write    # keepalive: повторное включение собственного workflow
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Collect Open-Meteo data
+        run: python collector/collect.py
+
+      - name: Commit data if changed
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data
+          if git diff --cached --quiet; then
+            echo "Данные не изменились — коммит не нужен"
+            exit 0
+          fi
+          git commit -m "data: $(date -u +'%Y-%m-%d %H:%M') UTC"
+          for i in 1 2 3 4; do
+            git push origin HEAD:main && exit 0
+            sleep $((2 ** i))
+            git pull --rebase origin main
+          done
+          exit 1
+
+      # Публичный репозиторий: GitHub отключает schedule после 60 дней без
+      # «активности», а коммиты самого workflow (GITHUB_TOKEN) для этого не
+      # гарантированно считаются. Повторное включение workflow через REST API
+      # (PUT .../actions/workflows/{id}/enable) сбрасывает этот счётчик.
+      - name: Keepalive (re-enable this workflow)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/collect.yml/enable"

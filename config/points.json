@@ -1,0 +1,247 @@
+{
+  "_comment": "Точки сборщика. Координаты устьев и водосборов получены из OpenStreetMap (Overpass) 2026-10-26, высоты — Open-Meteo Elevation API.",
+  "coastal": [
+    {
+      "id": "mahmutlar",
+      "name": "Махмутлар",
+      "lat": 36.493,
+      "lon": 32.095,
+      "marine_id": "mahmutlar_sea",
+      "note": "Центр Махмутлара, ~0.8 км от берега",
+      "elevation_m": 5.0
+    },
+    {
+      "id": "gazipasa",
+      "name": "Газипаша",
+      "lat": 36.259,
+      "lon": 32.288,
+      "marine_id": "gazipasa_sea",
+      "note": "Городской берег Газипаши у Селинунта / пляжа; административный центр (36.268, 32.318) в ~3 км от моря",
+      "elevation_m": 3.0
+    }
+  ],
+  "marine": [
+    {
+      "id": "mahmutlar_sea",
+      "name": "Море у Махмутлара",
+      "lat": 36.473,
+      "lon": 32.095,
+      "elevation_m": 0.0
+    },
+    {
+      "id": "gazipasa_sea",
+      "name": "Море у Газипаши",
+      "lat": 36.239,
+      "lon": 32.288,
+      "elevation_m": 0.0
+    }
+  ],
+  "rivers": [
+    {
+      "id": "dim",
+      "name": "Dim Çayı",
+      "osm": "relation/17074209",
+      "mouth": [
+        36.5208,
+        32.0545
+      ],
+      "mouth_place": "Кестель (Алания)",
+      "nearby_coastal": [
+        "mahmutlar"
+      ],
+      "dam": {
+        "name": "Dim Barajı",
+        "osm": "way/220889729",
+        "lat": 36.5511,
+        "lon": 32.1394
+      },
+      "note": "Сток частично регулируется плотиной Dim Barajı: дождь выше плотины доходит до устья с задержкой и сглаженно.",
+      "catchment": [
+        {
+          "lat": 36.5457,
+          "lon": 32.1196,
+          "zone": "below_dam",
+          "on": "Dim Çayı, ~2 км ниже плотины (ниже плотины выше 50 м точек на реке нет)",
+          "id": "dim_c1",
+          "elevation_m": 45.0
+        },
+        {
+          "lat": 36.5691,
+          "lon": 32.2962,
+          "zone": "above_dam",
+          "on": "Gavurdağı Deresi (приток Dim, выше водохранилища)",
+          "id": "dim_c2",
+          "elevation_m": 380.0
+        },
+        {
+          "lat": 36.5893,
+          "lon": 32.2981,
+          "zone": "above_dam",
+          "on": "Dim Çayı, выше водохранилища",
+          "id": "dim_c3",
+          "elevation_m": 444.0
+        },
+        {
+          "lat": 36.6043,
+          "lon": 32.2874,
+          "zone": "above_dam",
+          "on": "верховья Dim Çayı",
+          "id": "dim_c4",
+          "elevation_m": 749.0
+        }
+      ]
+    },
+    {
+      "id": "oba",
+      "name": "Oba Çayı",
+      "osm": "way/74990200 (+13 ways)",
+      "mouth": [
+        36.5352,
+        32.0324
+      ],
+      "mouth_place": "Оба (Алания)",
+      "nearby_coastal": [
+        "mahmutlar"
+      ],
+      "note": "Короткий водоток; линия OSM заканчивается на ~200 м, выше 300 м точек на реке нет.",
+      "catchment": [
+        {
+          "lat": 36.607,
+          "lon": 32.0807,
+          "zone": "upper",
+          "on": "верхняя точка Oba Çayı в OSM",
+          "id": "oba_c1",
+          "elevation_m": 269.0
+        },
+        {
+          "lat": 36.5885,
+          "lon": 32.0792,
+          "zone": "upper",
+          "on": "Oba Çayı",
+          "id": "oba_c2",
+          "elevation_m": 154.0
+        }
+      ]
+    },
+    {
+      "id": "ciglik",
+      "name": "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)",
+      "osm": "relation/17584634",
+      "mouth": [
+        36.2625,
+        32.2783
+      ],
+      "mouth_place": "Газипаша, у Селинунта",
+      "nearby_coastal": [
+        "gazipasa"
+      ],
+      "note": "Имени Hacımusa в OSM нет. Устье совпадает с античным Селинунтом, который стоит «в устье реки, ныне Musa Çay» (en.wikipedia Selinus (Cilicia)). Преимущественно сезонный.",
+      "catchment": [
+        {
+          "lat": 36.3205,
+          "lon": 32.463,
+          "zone": "middle",
+          "on": "Çığlık Çayı",
+          "id": "ciglik_c1",
+          "elevation_m": 302.0
+        },
+        {
+          "lat": 36.3135,
+          "lon": 32.5299,
+          "zone": "upper",
+          "on": "Çığlık Çayı",
+          "id": "ciglik_c2",
+          "elevation_m": 662.0
+        },
+        {
+          "lat": 36.3377,
+          "lon": 32.5587,
+          "zone": "upper",
+          "on": "верховья Çığlık Çayı",
+          "id": "ciglik_c3",
+          "elevation_m": 1053.0
+        }
+      ]
+    },
+    {
+      "id": "delice",
+      "name": "Delice Deresi",
+      "osm": "relation/17585144",
+      "mouth": [
+        36.2908,
+        32.2733
+      ],
+      "mouth_place": "Газипаша (Sarıağaç)",
+      "nearby_coastal": [
+        "gazipasa"
+      ],
+      "note": "Преимущественно сезонный.",
+      "catchment": [
+        {
+          "lat": 36.4291,
+          "lon": 32.3076,
+          "zone": "middle",
+          "on": "Delice Deresi",
+          "id": "delice_c1",
+          "elevation_m": 303.0
+        },
+        {
+          "lat": 36.4524,
+          "lon": 32.3484,
+          "zone": "upper",
+          "on": "Delice Deresi",
+          "id": "delice_c2",
+          "elevation_m": 509.0
+        },
+        {
+          "lat": 36.4548,
+          "lon": 32.3773,
+          "zone": "upper",
+          "on": "верховья Delice Deresi",
+          "id": "delice_c3",
+          "elevation_m": 961.0
+        }
+      ]
+    },
+    {
+      "id": "bickici",
+      "name": "Bıçkıcı Çayı",
+      "osm": "relation/17585068",
+      "mouth": [
+        36.2862,
+        32.2763
+      ],
+      "mouth_place": "Газипаша (Sarıağaç)",
+      "nearby_coastal": [
+        "gazipasa"
+      ],
+      "note": "Преимущественно сезонный. Устье в ~500 м от устья Delice.",
+      "catchment": [
+        {
+          "lat": 36.3975,
+          "lon": 32.4131,
+          "zone": "middle",
+          "on": "Bıçkıcı Çayı",
+          "id": "bickici_c1",
+          "elevation_m": 381.0
+        },
+        {
+          "lat": 36.4248,
+          "lon": 32.4352,
+          "zone": "upper",
+          "on": "Bıçkıcı Çayı",
+          "id": "bickici_c2",
+          "elevation_m": 492.0
+        },
+        {
+          "lat": 36.427,
+          "lon": 32.4752,
+          "zone": "upper",
+          "on": "верховья Bıçkıcı Çayı",
+          "id": "bickici_c3",
+          "elevation_m": 986.0
+        }
+      ]
+    }
+  ]
+}

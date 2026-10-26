@@ -1,0 +1,503 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.095,
+     36.493
+    ]
+   },
+   "properties": {
+    "name": "Махмутлар",
+    "id": "mahmutlar",
+    "note": "Центр Махмутлара, ~0.8 км от берега",
+    "type": "coastal",
+    "marker-color": "#1f77b4",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.288,
+     36.259
+    ]
+   },
+   "properties": {
+    "name": "Газипаша",
+    "id": "gazipasa",
+    "note": "Городской берег Газипаши у Селинунта / пляжа; административный центр (36.268, 32.318) в ~3 км от моря",
+    "type": "coastal",
+    "marker-color": "#1f77b4",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.095,
+     36.473
+    ]
+   },
+   "properties": {
+    "name": "Море у Махмутлара",
+    "id": "mahmutlar_sea",
+    "type": "marine",
+    "marker-color": "#17becf",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.288,
+     36.239
+    ]
+   },
+   "properties": {
+    "name": "Море у Газипаши",
+    "id": "gazipasa_sea",
+    "type": "marine",
+    "marker-color": "#17becf",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.0545,
+     36.5208
+    ]
+   },
+   "properties": {
+    "name": "Устье: Dim Çayı",
+    "river": "dim",
+    "osm": "relation/17074209",
+    "place": "Кестель (Алания)",
+    "type": "mouth",
+    "marker-color": "#d62728",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.1196,
+     36.5457
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Dim Çayı (below_dam)",
+    "id": "dim_c1",
+    "river": "dim",
+    "zone": "below_dam",
+    "elevation_m": 45.0,
+    "on": "Dim Çayı, ~2 км ниже плотины (ниже плотины выше 50 м точек на реке нет)",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.2962,
+     36.5691
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Dim Çayı (above_dam)",
+    "id": "dim_c2",
+    "river": "dim",
+    "zone": "above_dam",
+    "elevation_m": 380.0,
+    "on": "Gavurdağı Deresi (приток Dim, выше водохранилища)",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.2981,
+     36.5893
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Dim Çayı (above_dam)",
+    "id": "dim_c3",
+    "river": "dim",
+    "zone": "above_dam",
+    "elevation_m": 444.0,
+    "on": "Dim Çayı, выше водохранилища",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.2874,
+     36.6043
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Dim Çayı (above_dam)",
+    "id": "dim_c4",
+    "river": "dim",
+    "zone": "above_dam",
+    "elevation_m": 749.0,
+    "on": "верховья Dim Çayı",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.1394,
+     36.5511
+    ]
+   },
+   "properties": {
+    "name": "Dim Barajı",
+    "osm": "way/220889729",
+    "river": "dim",
+    "type": "dam",
+    "marker-color": "#7f7f7f",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.0324,
+     36.5352
+    ]
+   },
+   "properties": {
+    "name": "Устье: Oba Çayı",
+    "river": "oba",
+    "osm": "way/74990200 (+13 ways)",
+    "place": "Оба (Алания)",
+    "type": "mouth",
+    "marker-color": "#d62728",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.0807,
+     36.607
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Oba Çayı (upper)",
+    "id": "oba_c1",
+    "river": "oba",
+    "zone": "upper",
+    "elevation_m": 269.0,
+    "on": "верхняя точка Oba Çayı в OSM",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.0792,
+     36.5885
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Oba Çayı (upper)",
+    "id": "oba_c2",
+    "river": "oba",
+    "zone": "upper",
+    "elevation_m": 154.0,
+    "on": "Oba Çayı",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.2783,
+     36.2625
+    ]
+   },
+   "properties": {
+    "name": "Устье: Çığlık Çayı (вероятно = Hacımusa / Musa Çay)",
+    "river": "ciglik",
+    "osm": "relation/17584634",
+    "place": "Газипаша, у Селинунта",
+    "type": "mouth",
+    "marker-color": "#d62728",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.463,
+     36.3205
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Çığlık Çayı (вероятно = Hacımusa / Musa Çay) (middle)",
+    "id": "ciglik_c1",
+    "river": "ciglik",
+    "zone": "middle",
+    "elevation_m": 302.0,
+    "on": "Çığlık Çayı",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.5299,
+     36.3135
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Çığlık Çayı (вероятно = Hacımusa / Musa Çay) (upper)",
+    "id": "ciglik_c2",
+    "river": "ciglik",
+    "zone": "upper",
+    "elevation_m": 662.0,
+    "on": "Çığlık Çayı",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.5587,
+     36.3377
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Çığlık Çayı (вероятно = Hacımusa / Musa Çay) (upper)",
+    "id": "ciglik_c3",
+    "river": "ciglik",
+    "zone": "upper",
+    "elevation_m": 1053.0,
+    "on": "верховья Çığlık Çayı",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.2733,
+     36.2908
+    ]
+   },
+   "properties": {
+    "name": "Устье: Delice Deresi",
+    "river": "delice",
+    "osm": "relation/17585144",
+    "place": "Газипаша (Sarıağaç)",
+    "type": "mouth",
+    "marker-color": "#d62728",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.3076,
+     36.4291
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Delice Deresi (middle)",
+    "id": "delice_c1",
+    "river": "delice",
+    "zone": "middle",
+    "elevation_m": 303.0,
+    "on": "Delice Deresi",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.3484,
+     36.4524
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Delice Deresi (upper)",
+    "id": "delice_c2",
+    "river": "delice",
+    "zone": "upper",
+    "elevation_m": 509.0,
+    "on": "Delice Deresi",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.3773,
+     36.4548
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Delice Deresi (upper)",
+    "id": "delice_c3",
+    "river": "delice",
+    "zone": "upper",
+    "elevation_m": 961.0,
+    "on": "верховья Delice Deresi",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.2763,
+     36.2862
+    ]
+   },
+   "properties": {
+    "name": "Устье: Bıçkıcı Çayı",
+    "river": "bickici",
+    "osm": "relation/17585068",
+    "place": "Газипаша (Sarıağaç)",
+    "type": "mouth",
+    "marker-color": "#d62728",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.4131,
+     36.3975
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Bıçkıcı Çayı (middle)",
+    "id": "bickici_c1",
+    "river": "bickici",
+    "zone": "middle",
+    "elevation_m": 381.0,
+    "on": "Bıçkıcı Çayı",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.4352,
+     36.4248
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Bıçkıcı Çayı (upper)",
+    "id": "bickici_c2",
+    "river": "bickici",
+    "zone": "upper",
+    "elevation_m": 492.0,
+    "on": "Bıçkıcı Çayı",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.4752,
+     36.427
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Bıçkıcı Çayı (upper)",
+    "id": "bickici_c3",
+    "river": "bickici",
+    "zone": "upper",
+    "elevation_m": 986.0,
+    "on": "верховья Bıçkıcı Çayı",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  }
+ ]
+}

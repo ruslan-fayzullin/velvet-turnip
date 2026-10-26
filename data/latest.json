@@ -1,0 +1,1227 @@
+{
+ "generated_at": "2026-10-26T17:37+03:00",
+ "timezone": "Europe/Istanbul",
+ "units": {
+  "wind": "m/s",
+  "wave": "m",
+  "precip": "mm",
+  "pressure": "hPa",
+  "sst": "°C"
+ },
+ "source": "Open-Meteo.com (CC BY 4.0), best_match",
+ "source_model_runs": {
+  "ecmwf_ifs025": "2026-10-26T06:00Z",
+  "dwd_icon": "2026-10-26T06:00Z",
+  "ncep_gfs025": "2026-10-26T06:00Z",
+  "meteofrance_wave": "2026-10-26T00:00Z"
+ },
+ "points": [
+  {
+   "id": "mahmutlar",
+   "name": "Махмутлар",
+   "kind": "coastal",
+   "lat": 36.493,
+   "lon": 32.095,
+   "model_grid": {
+    "lat": 36.5405,
+    "lon": 32.0656
+   },
+   "elevation_m": 5.0
+  },
+  {
+   "id": "gazipasa",
+   "name": "Газипаша",
+   "kind": "coastal",
+   "lat": 36.259,
+   "lon": 32.288,
+   "model_grid": {
+    "lat": 36.3113,
+    "lon": 32.2797
+   },
+   "elevation_m": 3.0
+  },
+  {
+   "id": "dim_c1",
+   "name": "Dim Çayı (below_dam)",
+   "kind": "catchment",
+   "lat": 36.5457,
+   "lon": 32.1196,
+   "model_grid": {
+    "lat": 36.5405,
+    "lon": 32.0656
+   },
+   "elevation_m": 45.0
+  },
+  {
+   "id": "dim_c2",
+   "name": "Dim Çayı (above_dam)",
+   "kind": "catchment",
+   "lat": 36.5691,
+   "lon": 32.2962,
+   "model_grid": {
+    "lat": 36.4768,
+    "lon": 32.2689
+   },
+   "elevation_m": 380.0
+  },
+  {
+   "id": "dim_c3",
+   "name": "Dim Çayı (above_dam)",
+   "kind": "catchment",
+   "lat": 36.5893,
+   "lon": 32.2981,
+   "model_grid": {
+    "lat": 36.5596,
+    "lon": 32.2636
+   },
+   "elevation_m": 444.0
+  },
+  {
+   "id": "dim_c4",
+   "name": "Dim Çayı (above_dam)",
+   "kind": "catchment",
+   "lat": 36.6043,
+   "lon": 32.2874,
+   "model_grid": {
+    "lat": 36.5596,
+    "lon": 32.2636
+   },
+   "elevation_m": 749.0
+  },
+  {
+   "id": "oba_c1",
+   "name": "Oba Çayı (upper)",
+   "kind": "catchment",
+   "lat": 36.607,
+   "lon": 32.0807,
+   "model_grid": {
+    "lat": 36.5754,
+    "lon": 32.0367
+   },
+   "elevation_m": 269.0
+  },
+  {
+   "id": "oba_c2",
+   "name": "Oba Çayı (upper)",
+   "kind": "catchment",
+   "lat": 36.5885,
+   "lon": 32.0792,
+   "model_grid": {
+    "lat": 36.5405,
+    "lon": 32.0656
+   },
+   "elevation_m": 154.0
+  },
+  {
+   "id": "ciglik_c1",
+   "name": "Çığlık Çayı (вероятно = Hacımusa / Musa Çay) (middle)",
+   "kind": "catchment",
+   "lat": 36.3205,
+   "lon": 32.463,
+   "model_grid": {
+    "lat": 36.2792,
+    "lon": 32.3809
+   },
+   "elevation_m": 302.0
+  },
+  {
+   "id": "ciglik_c2",
+   "name": "Çığlık Çayı (вероятно = Hacımusa / Musa Çay) (upper)",
+   "kind": "catchment",
+   "lat": 36.3135,
+   "lon": 32.5299,
+   "model_grid": {
+    "lat": 36.3297,
+    "lon": 32.477
+   },
+   "elevation_m": 662.0
+  },
+  {
+   "id": "ciglik_c3",
+   "name": "Çığlık Çayı (вероятно = Hacımusa / Musa Çay) (upper)",
+   "kind": "catchment",
+   "lat": 36.3377,
+   "lon": 32.5587,
+   "model_grid": {
+    "lat": 36.2499,
+    "lon": 32.5549
+   },
+   "elevation_m": 1053.0
+  },
+  {
+   "id": "delice_c1",
+   "name": "Delice Deresi (middle)",
+   "kind": "catchment",
+   "lat": 36.4291,
+   "lon": 32.3076,
+   "model_grid": {
+    "lat": 36.394,
+    "lon": 32.2743
+   },
+   "elevation_m": 303.0
+  },
+  {
+   "id": "delice_c2",
+   "name": "Delice Deresi (upper)",
+   "kind": "catchment",
+   "lat": 36.4524,
+   "lon": 32.3484,
+   "model_grid": {
+    "lat": 36.397,
+    "lon": 32.3472
+   },
+   "elevation_m": 509.0
+  },
+  {
+   "id": "delice_c3",
+   "name": "Delice Deresi (upper)",
+   "kind": "catchment",
+   "lat": 36.4548,
+   "lon": 32.3773,
+   "model_grid": {
+    "lat": 36.4447,
+    "lon": 32.3705
+   },
+   "elevation_m": 961.0
+  },
+  {
+   "id": "bickici_c1",
+   "name": "Bıçkıcı Çayı (middle)",
+   "kind": "catchment",
+   "lat": 36.3975,
+   "lon": 32.4131,
+   "model_grid": {
+    "lat": 36.3619,
+    "lon": 32.3757
+   },
+   "elevation_m": 381.0
+  },
+  {
+   "id": "bickici_c2",
+   "name": "Bıçkıcı Çayı (upper)",
+   "kind": "catchment",
+   "lat": 36.4248,
+   "lon": 32.4352,
+   "model_grid": {
+    "lat": 36.397,
+    "lon": 32.3472
+   },
+   "elevation_m": 492.0
+  },
+  {
+   "id": "bickici_c3",
+   "name": "Bıçkıcı Çayı (upper)",
+   "kind": "catchment",
+   "lat": 36.427,
+   "lon": 32.4752,
+   "model_grid": {
+    "lat": 36.4447,
+    "lon": 32.3705
+   },
+   "elevation_m": 986.0
+  },
+  {
+   "id": "mahmutlar_sea",
+   "name": "Море у Махмутлара",
+   "kind": "marine",
+   "lat": 36.473,
+   "lon": 32.095,
+   "model_grid": {
+    "lat": 36.4583,
+    "lon": 32.125
+   },
+   "elevation_m": 0.0
+  },
+  {
+   "id": "gazipasa_sea",
+   "name": "Море у Газипаши",
+   "kind": "marine",
+   "lat": 36.239,
+   "lon": 32.288,
+   "model_grid": {
+    "lat": 36.2083,
+    "lon": 32.2917
+   },
+   "elevation_m": 0.0
+  }
+ ],
+ "moon": {
+  "illumination_pct": 100,
+  "phase": "полнолуние",
+  "age_days": 15.2,
+  "waxing": false,
+  "next_full_moon": "2026-11-24",
+  "next_new_moon": "2026-11-10"
+ },
+ "rivers": [
+  {
+   "id": "dim",
+   "name": "Dim Çayı",
+   "mouth": {
+    "lat": 36.5208,
+    "lon": 32.0545
+   },
+   "nearby_coastal": [
+    "mahmutlar"
+   ],
+   "past_24h_mm": 0.0,
+   "past_48h_mm": 0.0,
+   "next_24h_mm": 5.5,
+   "next_48h_mm": 11.8,
+   "peak_72h_time": null,
+   "peak_72h_mm_per_h": null,
+   "hours_since_peak": null,
+   "mouth_state": "dry_or_low",
+   "mouth_state_ru": "сухо / низкая вода",
+   "zones": {
+    "below_dam": {
+     "past_24h_mm": 0.0,
+     "past_48h_mm": 0.0,
+     "next_24h_mm": 11.8
+    },
+    "above_dam": {
+     "past_24h_mm": 0.0,
+     "past_48h_mm": 0.0,
+     "next_24h_mm": 3.4
+    }
+   },
+   "regulated": true,
+   "note": "Сток частично регулируется плотиной Dim Barajı: дождь выше плотины доходит до устья с задержкой и сглаженно."
+  },
+  {
+   "id": "oba",
+   "name": "Oba Çayı",
+   "mouth": {
+    "lat": 36.5352,
+    "lon": 32.0324
+   },
+   "nearby_coastal": [
+    "mahmutlar"
+   ],
+   "past_24h_mm": 0.1,
+   "past_48h_mm": 0.1,
+   "next_24h_mm": 14.3,
+   "next_48h_mm": 33.0,
+   "peak_72h_time": null,
+   "peak_72h_mm_per_h": null,
+   "hours_since_peak": null,
+   "mouth_state": "dry_or_low",
+   "mouth_state_ru": "сухо / низкая вода",
+   "note": "Короткий водоток; линия OSM заканчивается на ~200 м, выше 300 м точек на реке нет."
+  },
+  {
+   "id": "ciglik",
+   "name": "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)",
+   "mouth": {
+    "lat": 36.2625,
+    "lon": 32.2783
+   },
+   "nearby_coastal": [
+    "gazipasa"
+   ],
+   "past_24h_mm": 0.0,
+   "past_48h_mm": 0.0,
+   "next_24h_mm": 2.4,
+   "next_48h_mm": 3.5,
+   "peak_72h_time": null,
+   "peak_72h_mm_per_h": null,
+   "hours_since_peak": null,
+   "mouth_state": "dry_or_low",
+   "mouth_state_ru": "сухо / низкая вода",
+   "note": "Имени Hacımusa в OSM нет. Устье совпадает с античным Селинунтом, который стоит «в устье реки, ныне Musa Çay» (en.wikipedia Selinus (Cilicia)). Преимущественно сезонный."
+  },
+  {
+   "id": "delice",
+   "name": "Delice Deresi",
+   "mouth": {
+    "lat": 36.2908,
+    "lon": 32.2733
+   },
+   "nearby_coastal": [
+    "gazipasa"
+   ],
+   "past_24h_mm": 0.0,
+   "past_48h_mm": 0.0,
+   "next_24h_mm": 8.0,
+   "next_48h_mm": 9.6,
+   "peak_72h_time": null,
+   "peak_72h_mm_per_h": null,
+   "hours_since_peak": null,
+   "mouth_state": "dry_or_low",
+   "mouth_state_ru": "сухо / низкая вода",
+   "note": "Преимущественно сезонный."
+  },
+  {
+   "id": "bickici",
+   "name": "Bıçkıcı Çayı",
+   "mouth": {
+    "lat": 36.2862,
+    "lon": 32.2763
+   },
+   "nearby_coastal": [
+    "gazipasa"
+   ],
+   "past_24h_mm": 0.0,
+   "past_48h_mm": 0.0,
+   "next_24h_mm": 5.8,
+   "next_48h_mm": 6.6,
+   "peak_72h_time": null,
+   "peak_72h_mm_per_h": null,
+   "hours_since_peak": null,
+   "mouth_state": "dry_or_low",
+   "mouth_state_ru": "сухо / низкая вода",
+   "note": "Преимущественно сезонный. Устье в ~500 м от устья Delice."
+  }
+ ],
+ "windows": [
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-10-26",
+   "kind": "закат",
+   "start": "2026-10-26T16:31",
+   "end": "2026-10-26T18:31",
+   "wind_mean_ms": 1.4,
+   "wind_dir_deg": 214.0,
+   "wind_dir": "SSW",
+   "gust_max_ms": 3.7,
+   "onshore": true,
+   "wave_mean_m": 0.16,
+   "wave_max_m": 0.16,
+   "wave_period_s": 5.2,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1013.0,
+   "pressure_trend_6h_hpa": -1.3,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "dry_or_low",
+    "Bıçkıcı Çayı": "dry_or_low"
+   },
+   "score": 2,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.16 м < 0,2 м — штиль"
+   ],
+   "moon_illumination_pct": 100
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-10-26",
+   "kind": "закат",
+   "start": "2026-10-26T16:31",
+   "end": "2026-10-26T18:31",
+   "wind_mean_ms": 1.2,
+   "wind_dir_deg": 180.0,
+   "wind_dir": "S",
+   "gust_max_ms": 8.6,
+   "onshore": true,
+   "wave_mean_m": 0.14,
+   "wave_max_m": 0.14,
+   "wave_period_s": 5.3,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1013.1,
+   "pressure_trend_6h_hpa": -1.4,
+   "nearby_mouths": {
+    "Dim Çayı": "dry_or_low",
+    "Oba Çayı": "dry_or_low"
+   },
+   "score": 2,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.14 м < 0,2 м — штиль"
+   ],
+   "moon_illumination_pct": 100
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-10-27",
+   "kind": "рассвет",
+   "start": "2026-10-27T06:08",
+   "end": "2026-10-27T08:38",
+   "wind_mean_ms": 1.3,
+   "wind_dir_deg": 101.0,
+   "wind_dir": "E",
+   "gust_max_ms": 2.6,
+   "onshore": true,
+   "wave_mean_m": 0.39,
+   "wave_max_m": 0.4,
+   "wave_period_s": 3.4,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1013.6,
+   "pressure_trend_6h_hpa": 0.0,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "dry_or_low",
+    "Bıçkıcı Çayı": "dry_or_low"
+   },
+   "score": 2,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2"
+   ],
+   "moon_illumination_pct": 99
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-10-27",
+   "kind": "рассвет",
+   "start": "2026-10-27T06:10",
+   "end": "2026-10-27T08:40",
+   "wind_mean_ms": 1.9,
+   "wind_dir_deg": 54.0,
+   "wind_dir": "NE",
+   "gust_max_ms": 6.2,
+   "onshore": false,
+   "wave_mean_m": 0.42,
+   "wave_max_m": 0.44,
+   "wave_period_s": 3.3,
+   "precip_mm": 3.7,
+   "thunder": false,
+   "pressure_hpa": 1013.6,
+   "pressure_trend_6h_hpa": -0.1,
+   "nearby_mouths": {
+    "Dim Çayı": "dry_or_low",
+    "Oba Çayı": "dry_or_low"
+   },
+   "score": 3,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.4 м в рабочем диапазоне 0,4–1,2 м (+1)"
+   ],
+   "moon_illumination_pct": 99
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-10-27",
+   "kind": "закат",
+   "start": "2026-10-27T16:30",
+   "end": "2026-10-27T18:30",
+   "wind_mean_ms": 0.5,
+   "wind_dir_deg": 169.0,
+   "wind_dir": "SSE",
+   "gust_max_ms": 2.7,
+   "onshore": true,
+   "wave_mean_m": 0.52,
+   "wave_max_m": 0.52,
+   "wave_period_s": 5.0,
+   "precip_mm": 0.2,
+   "thunder": false,
+   "pressure_hpa": 1014.6,
+   "pressure_trend_6h_hpa": -1.3,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "dry_or_low",
+    "Bıçkıcı Çayı": "dry_or_low"
+   },
+   "score": 3,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.5 м в рабочем диапазоне 0,4–1,2 м (+1)"
+   ],
+   "moon_illumination_pct": 98
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-10-27",
+   "kind": "закат",
+   "start": "2026-10-27T16:30",
+   "end": "2026-10-27T18:30",
+   "wind_mean_ms": 0.7,
+   "wind_dir_deg": 153.0,
+   "wind_dir": "SSE",
+   "gust_max_ms": 2.2,
+   "onshore": true,
+   "wave_mean_m": 0.5,
+   "wave_max_m": 0.5,
+   "wave_period_s": 4.9,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1014.8,
+   "pressure_trend_6h_hpa": -1.3,
+   "nearby_mouths": {
+    "Dim Çayı": "dry_or_low",
+    "Oba Çayı": "rising"
+   },
+   "score": 3,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.5 м в рабочем диапазоне 0,4–1,2 м (+1)"
+   ],
+   "moon_illumination_pct": 98
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-10-28",
+   "kind": "рассвет",
+   "start": "2026-10-28T06:09",
+   "end": "2026-10-28T08:39",
+   "wind_mean_ms": 1.8,
+   "wind_dir_deg": 18.0,
+   "wind_dir": "NNE",
+   "gust_max_ms": 3.2,
+   "onshore": false,
+   "wave_mean_m": 0.68,
+   "wave_max_m": 0.68,
+   "wave_period_s": 4.7,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1013.0,
+   "pressure_trend_6h_hpa": -1.3,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "dry_or_low",
+    "Bıçkıcı Çayı": "dry_or_low"
+   },
+   "score": 3,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.7 м в рабочем диапазоне 0,4–1,2 м (+1)"
+   ],
+   "moon_illumination_pct": 96
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-10-28",
+   "kind": "рассвет",
+   "start": "2026-10-28T06:10",
+   "end": "2026-10-28T08:40",
+   "wind_mean_ms": 1.9,
+   "wind_dir_deg": 30.0,
+   "wind_dir": "NNE",
+   "gust_max_ms": 7.3,
+   "onshore": false,
+   "wave_mean_m": 0.62,
+   "wave_max_m": 0.62,
+   "wave_period_s": 5.0,
+   "precip_mm": 0.3,
+   "thunder": false,
+   "pressure_hpa": 1013.1,
+   "pressure_trend_6h_hpa": -1.4,
+   "nearby_mouths": {
+    "Dim Çayı": "dry_or_low",
+    "Oba Çayı": "prime"
+   },
+   "score": 4,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.6 м в рабочем диапазоне 0,4–1,2 м (+1)",
+    "рядом устье в фазе prime: Oba Çayı (+1)"
+   ],
+   "moon_illumination_pct": 96
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-10-28",
+   "kind": "закат",
+   "start": "2026-10-28T16:29",
+   "end": "2026-10-28T18:29",
+   "wind_mean_ms": 3.1,
+   "wind_dir_deg": 177.0,
+   "wind_dir": "S",
+   "gust_max_ms": 8.3,
+   "onshore": true,
+   "wave_mean_m": 0.7,
+   "wave_max_m": 0.7,
+   "wave_period_s": 4.3,
+   "precip_mm": 0.3,
+   "thunder": false,
+   "pressure_hpa": 1013.3,
+   "pressure_trend_6h_hpa": -1.2,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "dry_or_low",
+    "Bıçkıcı Çayı": "dry_or_low"
+   },
+   "score": 4,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.7 м в рабочем диапазоне 0,4–1,2 м (+1)",
+    "нагонный ветер S 3.1 м/с (+1)"
+   ],
+   "moon_illumination_pct": 94
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-10-28",
+   "kind": "закат",
+   "start": "2026-10-28T16:29",
+   "end": "2026-10-28T18:29",
+   "wind_mean_ms": 1.4,
+   "wind_dir_deg": 149.0,
+   "wind_dir": "SSE",
+   "gust_max_ms": 5.2,
+   "onshore": true,
+   "wave_mean_m": 0.66,
+   "wave_max_m": 0.68,
+   "wave_period_s": 4.5,
+   "precip_mm": 14.6,
+   "thunder": true,
+   "pressure_hpa": 1013.9,
+   "pressure_trend_6h_hpa": -0.7,
+   "nearby_mouths": {
+    "Dim Çayı": "dry_or_low",
+    "Oba Çayı": "rising"
+   },
+   "score": 1,
+   "no_go": true,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "гроза в окне или рядом (код 95–99 или CAPE > 1000) — не идти"
+   ],
+   "moon_illumination_pct": 94
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-10-29",
+   "kind": "рассвет",
+   "start": "2026-10-29T06:10",
+   "end": "2026-10-29T08:40",
+   "wind_mean_ms": 1.3,
+   "wind_dir_deg": 51.0,
+   "wind_dir": "NE",
+   "gust_max_ms": 3.3,
+   "onshore": false,
+   "wave_mean_m": 0.7,
+   "wave_max_m": 0.7,
+   "wave_period_s": 4.0,
+   "precip_mm": 6.7,
+   "thunder": true,
+   "pressure_hpa": 1012.3,
+   "pressure_trend_6h_hpa": -0.6,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "fading",
+    "Bıçkıcı Çayı": "dry_or_low"
+   },
+   "score": 1,
+   "no_go": true,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "гроза в окне или рядом (код 95–99 или CAPE > 1000) — не идти"
+   ],
+   "moon_illumination_pct": 90
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-10-29",
+   "kind": "рассвет",
+   "start": "2026-10-29T06:11",
+   "end": "2026-10-29T08:41",
+   "wind_mean_ms": 1.3,
+   "wind_dir_deg": 45.0,
+   "wind_dir": "NE",
+   "gust_max_ms": 4.1,
+   "onshore": false,
+   "wave_mean_m": 0.71,
+   "wave_max_m": 0.72,
+   "wave_period_s": 4.2,
+   "precip_mm": 2.9,
+   "thunder": true,
+   "pressure_hpa": 1012.5,
+   "pressure_trend_6h_hpa": -0.7,
+   "nearby_mouths": {
+    "Dim Çayı": "prime",
+    "Oba Çayı": "prime"
+   },
+   "score": 1,
+   "no_go": true,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "гроза в окне или рядом (код 95–99 или CAPE > 1000) — не идти"
+   ],
+   "moon_illumination_pct": 90
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-10-29",
+   "kind": "закат",
+   "start": "2026-10-29T16:27",
+   "end": "2026-10-29T18:27",
+   "wind_mean_ms": 2.6,
+   "wind_dir_deg": 176.0,
+   "wind_dir": "S",
+   "gust_max_ms": 5.2,
+   "onshore": true,
+   "wave_mean_m": 0.73,
+   "wave_max_m": 0.74,
+   "wave_period_s": 4.7,
+   "precip_mm": 0.2,
+   "thunder": false,
+   "pressure_hpa": 1011.7,
+   "pressure_trend_6h_hpa": -1.1,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "rising",
+    "Bıçkıcı Çayı": "rising"
+   },
+   "score": 3,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.7 м в рабочем диапазоне 0,4–1,2 м (+1)"
+   ],
+   "moon_illumination_pct": 87
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-10-29",
+   "kind": "закат",
+   "start": "2026-10-29T16:28",
+   "end": "2026-10-29T18:28",
+   "wind_mean_ms": 1.8,
+   "wind_dir_deg": 163.0,
+   "wind_dir": "SSE",
+   "gust_max_ms": 3.8,
+   "onshore": true,
+   "wave_mean_m": 0.69,
+   "wave_max_m": 0.7,
+   "wave_period_s": 4.7,
+   "precip_mm": 0.6,
+   "thunder": false,
+   "pressure_hpa": 1012.1,
+   "pressure_trend_6h_hpa": -0.8,
+   "nearby_mouths": {
+    "Dim Çayı": "rising",
+    "Oba Çayı": "flood_now"
+   },
+   "score": 3,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.7 м в рабочем диапазоне 0,4–1,2 м (+1)"
+   ],
+   "moon_illumination_pct": 87
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-10-30",
+   "kind": "рассвет",
+   "start": "2026-10-30T06:11",
+   "end": "2026-10-30T08:41",
+   "wind_mean_ms": 1.8,
+   "wind_dir_deg": 52.0,
+   "wind_dir": "NE",
+   "gust_max_ms": 3.2,
+   "onshore": false,
+   "wave_mean_m": 0.73,
+   "wave_max_m": 0.74,
+   "wave_period_s": 6.0,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1014.1,
+   "pressure_trend_6h_hpa": 1.5,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "prime",
+    "Bıçkıcı Çayı": "prime"
+   },
+   "score": 4,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.7 м в рабочем диапазоне 0,4–1,2 м (+1)",
+    "рядом устье в фазе prime: Delice Deresi, Bıçkıcı Çayı (+1)"
+   ],
+   "moon_illumination_pct": 83
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-10-30",
+   "kind": "рассвет",
+   "start": "2026-10-30T06:12",
+   "end": "2026-10-30T08:42",
+   "wind_mean_ms": 1.9,
+   "wind_dir_deg": 36.0,
+   "wind_dir": "NE",
+   "gust_max_ms": 4.3,
+   "onshore": false,
+   "wave_mean_m": 0.67,
+   "wave_max_m": 0.68,
+   "wave_period_s": 5.9,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1014.1,
+   "pressure_trend_6h_hpa": 1.6,
+   "nearby_mouths": {
+    "Dim Çayı": "prime",
+    "Oba Çayı": "prime"
+   },
+   "score": 4,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.7 м в рабочем диапазоне 0,4–1,2 м (+1)",
+    "рядом устье в фазе prime: Dim Çayı, Oba Çayı (+1)"
+   ],
+   "moon_illumination_pct": 83
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-10-30",
+   "kind": "закат",
+   "start": "2026-10-30T16:26",
+   "end": "2026-10-30T18:26",
+   "wind_mean_ms": 1.3,
+   "wind_dir_deg": 293.0,
+   "wind_dir": "WNW",
+   "gust_max_ms": 3.8,
+   "onshore": false,
+   "wave_mean_m": 0.63,
+   "wave_max_m": 0.64,
+   "wave_period_s": 5.7,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1015.7,
+   "pressure_trend_6h_hpa": -0.1,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "prime",
+    "Bıçkıcı Çayı": "prime"
+   },
+   "score": 4,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.6 м в рабочем диапазоне 0,4–1,2 м (+1)",
+    "рядом устье в фазе prime: Delice Deresi, Bıçkıcı Çayı (+1)"
+   ],
+   "moon_illumination_pct": 80
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-10-30",
+   "kind": "закат",
+   "start": "2026-10-30T16:27",
+   "end": "2026-10-30T18:27",
+   "wind_mean_ms": 0.5,
+   "wind_dir_deg": 228.0,
+   "wind_dir": "SW",
+   "gust_max_ms": 2.0,
+   "onshore": true,
+   "wave_mean_m": 0.57,
+   "wave_max_m": 0.58,
+   "wave_period_s": 5.8,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1015.8,
+   "pressure_trend_6h_hpa": -0.1,
+   "nearby_mouths": {
+    "Dim Çayı": "prime",
+    "Oba Çayı": "prime"
+   },
+   "score": 4,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.6 м в рабочем диапазоне 0,4–1,2 м (+1)",
+    "рядом устье в фазе prime: Dim Çayı, Oba Çayı (+1)"
+   ],
+   "moon_illumination_pct": 80
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-10-31",
+   "kind": "рассвет",
+   "start": "2026-10-31T06:12",
+   "end": "2026-10-31T08:42",
+   "wind_mean_ms": 1.8,
+   "wind_dir_deg": 41.0,
+   "wind_dir": "NE",
+   "gust_max_ms": 3.6,
+   "onshore": false,
+   "wave_mean_m": 0.41,
+   "wave_max_m": 0.42,
+   "wave_period_s": 4.8,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1018.2,
+   "pressure_trend_6h_hpa": 0.4,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "fading",
+    "Bıçkıcı Çayı": "fading"
+   },
+   "score": 3,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.4 м в рабочем диапазоне 0,4–1,2 м (+1)"
+   ],
+   "moon_illumination_pct": 74
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-10-31",
+   "kind": "рассвет",
+   "start": "2026-10-31T06:13",
+   "end": "2026-10-31T08:43",
+   "wind_mean_ms": 1.9,
+   "wind_dir_deg": 38.0,
+   "wind_dir": "NE",
+   "gust_max_ms": 4.3,
+   "onshore": false,
+   "wave_mean_m": 0.37,
+   "wave_max_m": 0.38,
+   "wave_period_s": 5.1,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1018.2,
+   "pressure_trend_6h_hpa": 0.5,
+   "nearby_mouths": {
+    "Dim Çayı": "fading",
+    "Oba Çayı": "fading"
+   },
+   "score": 2,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2"
+   ],
+   "moon_illumination_pct": 74
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-10-31",
+   "kind": "закат",
+   "start": "2026-10-31T16:25",
+   "end": "2026-10-31T18:25",
+   "wind_mean_ms": 0.3,
+   "wind_dir_deg": 37.0,
+   "wind_dir": "NE",
+   "gust_max_ms": 3.9,
+   "onshore": false,
+   "wave_mean_m": 0.53,
+   "wave_max_m": 0.54,
+   "wave_period_s": 3.9,
+   "precip_mm": 1.4,
+   "thunder": false,
+   "pressure_hpa": 1015.6,
+   "pressure_trend_6h_hpa": -1.0,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "dry_or_low",
+    "Bıçkıcı Çayı": "dry_or_low"
+   },
+   "score": 3,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.5 м в рабочем диапазоне 0,4–1,2 м (+1)"
+   ],
+   "moon_illumination_pct": 70
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-10-31",
+   "kind": "закат",
+   "start": "2026-10-31T16:26",
+   "end": "2026-10-31T18:26",
+   "wind_mean_ms": 0.9,
+   "wind_dir_deg": 114.0,
+   "wind_dir": "ESE",
+   "gust_max_ms": 3.5,
+   "onshore": true,
+   "wave_mean_m": 0.38,
+   "wave_max_m": 0.38,
+   "wave_period_s": 4.1,
+   "precip_mm": 0.2,
+   "thunder": false,
+   "pressure_hpa": 1016.1,
+   "pressure_trend_6h_hpa": -0.8,
+   "nearby_mouths": {
+    "Dim Çayı": "dry_or_low",
+    "Oba Çayı": "dry_or_low"
+   },
+   "score": 2,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2"
+   ],
+   "moon_illumination_pct": 70
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-11-01",
+   "kind": "рассвет",
+   "start": "2026-11-01T06:13",
+   "end": "2026-11-01T08:43",
+   "wind_mean_ms": 1.6,
+   "wind_dir_deg": 76.0,
+   "wind_dir": "ENE",
+   "gust_max_ms": 3.9,
+   "onshore": false,
+   "wave_mean_m": 0.4,
+   "wave_max_m": 0.4,
+   "wave_period_s": 3.5,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1016.7,
+   "pressure_trend_6h_hpa": 0.1,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "dry_or_low",
+    "Bıçkıcı Çayı": "dry_or_low"
+   },
+   "score": 3,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.4 м в рабочем диапазоне 0,4–1,2 м (+1)"
+   ],
+   "moon_illumination_pct": 65
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-11-01",
+   "kind": "рассвет",
+   "start": "2026-11-01T06:14",
+   "end": "2026-11-01T08:44",
+   "wind_mean_ms": 1.7,
+   "wind_dir_deg": 74.0,
+   "wind_dir": "ENE",
+   "gust_max_ms": 4.5,
+   "onshore": false,
+   "wave_mean_m": 0.32,
+   "wave_max_m": 0.32,
+   "wave_period_s": 3.6,
+   "precip_mm": 0.0,
+   "thunder": false,
+   "pressure_hpa": 1016.9,
+   "pressure_trend_6h_hpa": 0.1,
+   "nearby_mouths": {
+    "Dim Çayı": "dry_or_low",
+    "Oba Çayı": "dry_or_low"
+   },
+   "score": 2,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2"
+   ],
+   "moon_illumination_pct": 65
+  },
+  {
+   "point": "gazipasa",
+   "point_name": "Газипаша",
+   "date": "2026-11-01",
+   "kind": "закат",
+   "start": "2026-11-01T16:24",
+   "end": "2026-11-01T18:24",
+   "wind_mean_ms": 0.8,
+   "wind_dir_deg": 147.0,
+   "wind_dir": "SSE",
+   "gust_max_ms": 2.8,
+   "onshore": true,
+   "wave_mean_m": 0.54,
+   "wave_max_m": 0.54,
+   "wave_period_s": 3.2,
+   "precip_mm": 0.6,
+   "thunder": false,
+   "pressure_hpa": 1018.3,
+   "pressure_trend_6h_hpa": 0.2,
+   "nearby_mouths": {
+    "Çığlık Çayı (вероятно = Hacımusa / Musa Çay)": "dry_or_low",
+    "Delice Deresi": "dry_or_low",
+    "Bıçkıcı Çayı": "dry_or_low"
+   },
+   "score": 3,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.5 м в рабочем диапазоне 0,4–1,2 м (+1)"
+   ],
+   "moon_illumination_pct": 60
+  },
+  {
+   "point": "mahmutlar",
+   "point_name": "Махмутлар",
+   "date": "2026-11-01",
+   "kind": "закат",
+   "start": "2026-11-01T16:25",
+   "end": "2026-11-01T18:25",
+   "wind_mean_ms": 1.2,
+   "wind_dir_deg": 145.0,
+   "wind_dir": "SE",
+   "gust_max_ms": 3.3,
+   "onshore": true,
+   "wave_mean_m": 0.41,
+   "wave_max_m": 0.42,
+   "wave_period_s": 3.2,
+   "precip_mm": 0.6,
+   "thunder": false,
+   "pressure_hpa": 1018.4,
+   "pressure_trend_6h_hpa": 0.0,
+   "nearby_mouths": {
+    "Dim Çayı": "dry_or_low",
+    "Oba Çayı": "dry_or_low"
+   },
+   "score": 3,
+   "no_go": false,
+   "dangerous_on_rocks": false,
+   "reasons": [
+    "база 2",
+    "волна 0.4 м в рабочем диапазоне 0,4–1,2 м (+1)"
+   ],
+   "moon_illumination_pct": 60
+  }
+ ],
+ "sea_surface_temperature_now": {
+  "mahmutlar_sea": 25.8,
+  "gazipasa_sea": 25.7
+ },
+ "warnings": []
+}
