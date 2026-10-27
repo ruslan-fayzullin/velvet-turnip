@@ -46,7 +46,8 @@ MARINE_META_URL = "https://marine-api.open-meteo.com/data/{model}/static/meta.js
 # а при past_days=2 история начинается с 00:00 позавчера (48–71 ч назад).
 FORECAST_PAST_DAYS = 3
 FORECAST_DAYS = 7
-MARINE_PAST_DAYS = 1
+MARINE_PAST_DAYS = 2           # волна за прошлые 48 ч — для графика
+TIMELINE_PAST_HOURS = 48       # почасовая лента начинается за 48 ч до текущего часа
 
 HOURLY = ["precipitation", "rain", "showers", "weather_code", "cloud_cover",
           "pressure_msl", "wind_speed_10m", "wind_direction_10m",
@@ -531,6 +532,14 @@ def main():
             item["regulated"] = True
         if r.get("note"):
             item["note"] = r["note"]
+        # Суточные суммы осадков в водосборе (по местной дате; час T относится
+        # к дате часа T) — для графика «дождь в горах».
+        daily_mm = {}
+        for t, p_ in zip(times, pr):
+            if p_ is not None:
+                key = t.strftime("%Y-%m-%d")
+                daily_mm[key] = daily_mm.get(key, 0.0) + p_
+        item["daily_mm"] = [{"date": k, "mm": round(v, 1)} for k, v in sorted(daily_mm.items())]
         rivers_out.append(item)
 
     # ------------------------------------------------ окна ловли
@@ -647,8 +656,11 @@ def main():
     for p in cfg["coastal"]:
         s_wx, s_sea = wx[p["id"]], sea.get(p["marine_id"])
         cols = {k: [] for k in ("time", "light", "score", "no_go", "thunder", "wind_ms", "wind_dir",
-                                "onshore", "wave_m", "precip_mm", "cloud_pct", "moonlight")}
-        t = now_hour
+                                "wind_deg", "gust_ms", "onshore", "wave_m", "wave_period_s", "precip_mm",
+                                "cloud_pct", "moonlight", "temp_c", "pressure_hpa")}
+        # Лента начинается за 48 ч до текущего часа: для графиков нужен уже
+        # выпавший дождь и ход давления. Оценки прошлых часов — справочно.
+        t = now_hour - timedelta(hours=TIMELINE_PAST_HOURS)
         while t < horizon:
             light = light_at(t, sun[p["id"]])
             m = window_metrics(p["id"], "час", t, t, s_wx, s_sea, quiet=True)
@@ -661,8 +673,11 @@ def main():
             sc, _, fl = score_window(m, prime, light)
             for k, v in (("time", fmt(t)), ("light", light), ("score", sc), ("no_go", fl["no_go"]),
                          ("thunder", m["thunder"]), ("wind_ms", m["wind_mean_ms"]), ("wind_dir", m["wind_dir"]),
-                         ("onshore", m["onshore"]), ("wave_m", m["wave_mean_m"]), ("precip_mm", m["precip_mm"]),
-                         ("cloud_pct", m["cloud_mean_pct"]), ("moonlight", m["moonlight"])):
+                         ("wind_deg", m["wind_dir_deg"]), ("gust_ms", m["gust_max_ms"]),
+                         ("onshore", m["onshore"]), ("wave_m", m["wave_mean_m"]),
+                         ("wave_period_s", m["wave_period_s"]), ("precip_mm", m["precip_mm"]),
+                         ("cloud_pct", m["cloud_mean_pct"]), ("moonlight", m["moonlight"]),
+                         ("temp_c", rnd(s_wx.get("temperature_2m", t))), ("pressure_hpa", m["pressure_hpa"])):
                 cols[k].append(v)
             t += timedelta(hours=1)
         timeline[p["id"]] = cols
@@ -706,7 +721,9 @@ def main():
     os.makedirs(os.path.join(DATA, "history"), exist_ok=True)
     with open(os.path.join(DATA, "raw", "latest_raw.json"), "w", encoding="utf-8") as f:
         json.dump({"fetched_at": latest["generated_at"], "forecast": fc, "marine": mc}, f, ensure_ascii=False)
-    body = json.dumps(latest, ensure_ascii=False, indent=1)
+    # Компактно, без отступов: с почасовой лентой на 4 точки файл с отступами
+    # раздувается втрое, а снимок в history пишется каждый день.
+    body = json.dumps(latest, ensure_ascii=False, separators=(",", ":"))
     for path in (os.path.join(DATA, "latest.json"),
                  os.path.join(DATA, "history", now.strftime("%Y-%m-%d") + ".json")):
         with open(path, "w", encoding="utf-8") as f:
