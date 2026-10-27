@@ -42,6 +42,42 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     32.1693,
+     36.4132
+    ]
+   },
+   "properties": {
+    "name": "Демирташ",
+    "id": "demirtas",
+    "note": "У устья Demirtaş Çayı (координаты устья даны владельцем по спутнику)",
+    "type": "coastal",
+    "marker-color": "#1f77b4",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.1927,
+     36.3778
+    ]
+   },
+   "properties": {
+    "name": "Йешилёз",
+    "id": "yesiloz",
+    "note": "Пляж Йешилёз (Алания), устье ручья Yesilöz; точку дал владелец (36°22'40.12\"N 32°11'33.71\"E)",
+    "type": "coastal",
+    "marker-color": "#1f77b4",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      32.095,
      36.473
     ]
@@ -66,6 +102,40 @@
    "properties": {
     "name": "Море у Газипаши",
     "id": "gazipasa_sea",
+    "type": "marine",
+    "marker-color": "#17becf",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.1693,
+     36.393
+    ]
+   },
+   "properties": {
+    "name": "Море у Демирташа",
+    "id": "demirtas_sea",
+    "type": "marine",
+    "marker-color": "#17becf",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.1927,
+     36.358
+    ]
+   },
+   "properties": {
+    "name": "Море у Йешилёза",
+    "id": "yesiloz_sea",
     "type": "marine",
     "marker-color": "#17becf",
     "marker-size": "medium"
@@ -494,6 +564,252 @@
     "zone": "upper",
     "elevation_m": 986.0,
     "on": "верховья Bıçkıcı Çayı",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.16926,
+     36.41319
+    ]
+   },
+   "properties": {
+    "name": "Устье: Demirtaş Çayı",
+    "river": "demirtas",
+    "osm": "way/919312610 (+23 ways, без имени)",
+    "place": "Демирташ (Алания)",
+    "type": "mouth",
+    "marker-color": "#d62728",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.3128,
+     36.5249
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Demirtaş Çayı (middle)",
+    "id": "demirtas_c1",
+    "river": "demirtas",
+    "zone": "middle",
+    "elevation_m": 364.0,
+    "on": "Demirtaş Çayı, главное русло (way/191199737)",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.3161,
+     36.5321
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Demirtaş Çayı (upper)",
+    "id": "demirtas_c2",
+    "river": "demirtas",
+    "zone": "upper",
+    "elevation_m": 479.0,
+    "on": "верхняя точка главного русла в OSM (way/191199737)",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.245,
+     36.5066
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Demirtaş Çayı (upper)",
+    "id": "demirtas_c3",
+    "river": "demirtas",
+    "zone": "upper",
+    "elevation_m": 526.0,
+    "on": "верхняя точка западного притока в OSM (way/114278829)",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.10182,
+     36.47926
+    ]
+   },
+   "properties": {
+    "name": "Устье: Ручей у каменного пляжа (Махмутлар)",
+    "river": "mahmutlar_creek",
+    "osm": "way/373876642 (+4 ways, без имени)",
+    "place": "Махмутлар, каменный пляж ~1,5 км к ЮВ от центра",
+    "type": "mouth",
+    "marker-color": "#d62728",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.119,
+     36.488
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Ручей у каменного пляжа (Махмутлар) (middle)",
+    "id": "mahmutlar_creek_c1",
+    "river": "mahmutlar_creek",
+    "zone": "middle",
+    "elevation_m": 73.0,
+    "on": "тальвег ручья по рельефу",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.123,
+     36.492
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Ручей у каменного пляжа (Махмутлар) (upper)",
+    "id": "mahmutlar_creek_c2",
+    "river": "mahmutlar_creek",
+    "zone": "upper",
+    "elevation_m": 131.0,
+    "on": "тальвег ручья по рельефу",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.127,
+     36.492
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Ручей у каменного пляжа (Махмутлар) (upper)",
+    "id": "mahmutlar_creek_c3",
+    "river": "mahmutlar_creek",
+    "zone": "upper",
+    "elevation_m": 202.0,
+    "on": "верх водосбора по рельефу",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.1927,
+     36.3778
+    ]
+   },
+   "properties": {
+    "name": "Устье: Yesilöz",
+    "river": "yesiloz",
+    "osm": "way/452023882",
+    "place": "Йешилёз (Алания)",
+    "type": "mouth",
+    "marker-color": "#d62728",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.224,
+     36.383
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Yesilöz (middle)",
+    "id": "yesiloz_c1",
+    "river": "yesiloz",
+    "zone": "middle",
+    "elevation_m": 99.0,
+    "on": "тальвег ручья по рельефу",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.23,
+     36.383
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Yesilöz (upper)",
+    "id": "yesiloz_c2",
+    "river": "yesiloz",
+    "zone": "upper",
+    "elevation_m": 187.0,
+    "on": "тальвег ручья по рельефу",
+    "type": "catchment",
+    "marker-color": "#2ca02c",
+    "marker-size": "medium"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     32.238,
+     36.381
+    ]
+   },
+   "properties": {
+    "name": "Водосбор: Yesilöz (upper)",
+    "id": "yesiloz_c3",
+    "river": "yesiloz",
+    "zone": "upper",
+    "elevation_m": 300.0,
+    "on": "верх водосбора по рельефу",
     "type": "catchment",
     "marker-color": "#2ca02c",
     "marker-size": "medium"

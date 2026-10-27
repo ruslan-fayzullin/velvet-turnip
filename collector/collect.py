@@ -4,6 +4,10 @@
 
 Тянет Open-Meteo (Forecast + Marine), считает производные значения
 (состояние устьев, окна ловли, оценку) и пишет:
+  windows   — четыре окна в сутки: рассвет, день, закат, ночь (для дня
+              и ночи — лучший 3-часовой отрезок периода);
+  timeline  — почасовая оценка по каждой прибрежной точке на 7 дней.
+Файлы:
   data/latest.json          — компактный результат для чтения моделью
   data/summary.md           — сводка по-русски
   data/raw/latest_raw.json  — сырые ответы API (перезаписывается)
@@ -182,6 +186,35 @@ def moon_phase(dt):
     }
 
 
+def moon_altitude(dt, lat, lon):
+    """Высота Луны над горизонтом, градусы. Упрощённая модель (как в
+    suncalc): точность ~1°, для «Луна над горизонтом или нет» хватает."""
+    rad = math.pi / 180
+    d = dt.astimezone(timezone.utc).timestamp() / 86400 + 2440587.5 - 2451545.0
+    L = rad * (218.316 + 13.176396 * d)
+    M = rad * (134.963 + 13.064993 * d)
+    F = rad * (93.272 + 13.229350 * d)
+    lon_ecl = L + rad * 6.289 * math.sin(M)
+    lat_ecl = rad * 5.128 * math.sin(F)
+    e = rad * 23.4397
+    ra = math.atan2(math.sin(lon_ecl) * math.cos(e) - math.tan(lat_ecl) * math.sin(e), math.cos(lon_ecl))
+    dec = math.asin(math.sin(lat_ecl) * math.cos(e) + math.cos(lat_ecl) * math.sin(e) * math.sin(lon_ecl))
+    H = rad * (280.16 + 360.9856235 * d) + rad * lon - ra
+    phi = rad * lat
+    alt = math.asin(math.sin(phi) * math.sin(dec) + math.cos(phi) * math.cos(dec) * math.cos(H))
+    return alt / rad
+
+
+def moonlight(dt, lat, lon, cloud_pct):
+    """Эффективный лунный свет 0..1: освещённость диска × доля чистого неба,
+    0 если Луна под горизонтом."""
+    if moon_altitude(dt, lat, lon) <= 0:
+        return 0.0
+    illum = moon_phase(dt)["illumination_pct"] / 100
+    clear = 1 - (cloud_pct if cloud_pct is not None else 50) / 100
+    return illum * clear
+
+
 # ---------------------------------------------------------------- устья
 
 def basin_precip(series_list):
@@ -257,10 +290,26 @@ STATE_RU = {
 
 OFFSHORE_SECTORS = {"N", "NNE", "NE"}   # ветер с суши для южного берега
 
+# Поправки по времени суток (light: twilight / day / night).
+# Сумерки — базовый случай, без поправок. Днём леврек у берега держится
+# хуже: пасмурно или дождь возвращают день к уровню сумерек, но не выше;
+# ясно и тихо — ещё хуже. Ночью решает освещённость: тёмная ночь лучше,
+# яркая Луна при ясном небе хуже.
+LIGHT_MODS = {
+    "day_base": -1,                 # день сам по себе хуже сумерек
+    "day_overcast_cloud": 70,       # облачность выше, % — +1 (компенсирует day_base)
+    "day_clear_cloud": 40,          # ясно (облачность ниже, %) ...
+    "day_clear_wave": 0.3,          # ... и волна ниже, м — ещё −1
+    "night_dark": 0.2,              # эффективный лунный свет ниже — +1
+    "night_bright": 0.7,            # выше — −1
+}
+LIGHT_RU = {"twilight": "сумерки", "day": "день", "night": "ночь"}
 
-def score_window(w, nearby_prime):
+
+def score_window(w, nearby_prime, light="twilight"):
     """Прозрачная оценка окна 1..5. База 2 («обычно»), дальше поправки.
-    Все пороги — здесь, крутить можно прямо в этой функции.
+    Все пороги — здесь и в LIGHT_MODS, крутить можно прямо тут.
+    light — время суток окна; для day/night добавляются поправки.
     Возвращает (score, reasons, flags)."""
     reasons = []
     flags = {"no_go": False, "dangerous_on_rocks": False}
@@ -298,6 +347,26 @@ def score_window(w, nearby_prime):
         score += 1
         reasons.append("рядом устье в фазе prime: " + ", ".join(nearby_prime) + " (+1)")
 
+    # Время суток.
+    cloud = w.get("cloud_mean_pct")
+    if light == "day":
+        score += LIGHT_MODS["day_base"]
+        reasons.append(f"день: у берега рыба держится хуже, чем в сумерки ({LIGHT_MODS['day_base']:+d})")
+        if (cloud is not None and cloud > LIGHT_MODS["day_overcast_cloud"]) or (w.get("precip_mm") or 0) > 0.2:
+            score += 1
+            reasons.append(f"пасмурно или дождь (облачность {cloud if cloud is not None else '—'}%) — свет приглушён (+1)")
+        if cloud is not None and cloud < LIGHT_MODS["day_clear_cloud"] and wave is not None and wave < LIGHT_MODS["day_clear_wave"]:
+            score -= 1
+            reasons.append(f"ясно ({cloud}%) и тихо ({wave:.2f} м) — прозрачная вода днём (−1)")
+    elif light == "night":
+        ml = w.get("moonlight")
+        if ml is not None and ml < LIGHT_MODS["night_dark"]:
+            score += 1
+            reasons.append(f"тёмная ночь (лунный свет {ml:.2f}) (+1)")
+        elif ml is not None and ml > LIGHT_MODS["night_bright"]:
+            score -= 1
+            reasons.append(f"яркая Луна при чистом небе (лунный свет {ml:.2f}) (−1)")
+
     # Штиль: без волны леврек осторожен — не выше 2.
     if wave is not None and wave < 0.2:
         if score > 2:
@@ -318,9 +387,11 @@ def score_window(w, nearby_prime):
 
 # ---------------------------------------------------------------- окна
 
-def window_metrics(name, kind, start, end, wx, sea):
-    """Сводка погоды и моря для окна [start, end]."""
+def window_metrics(name, kind, start, end, wx, sea, quiet=False):
+    """Сводка погоды и моря для окна [start, end]. quiet — не писать
+    предупреждения о пропусках (для почасовой ленты, иначе спам)."""
     sp = wx.between("wind_speed_10m", start, end)
+    cl = wx.between("cloud_cover", start, end)
     dr = wx.between("wind_direction_10m", start, end)
     gu = wx.between("wind_gusts_10m", start, end)
     # Осадки за час T относятся к (T-1, T]: берём часы, пересекающие окно.
@@ -341,7 +412,7 @@ def window_metrics(name, kind, start, end, wx, sea):
         any(c is not None and c > 1000 for c in capes)
 
     missing = [k for k, v in (("ветер", sp), ("волна", wh)) if not v or all(x is None for x in v)]
-    if missing:
+    if missing and not quiet:
         warn(f"{name} {kind} {fmt(start)}: нет данных ({', '.join(missing)})")
 
     return {
@@ -357,6 +428,7 @@ def window_metrics(name, kind, start, end, wx, sea):
         "thunder": thunder,
         "pressure_hpa": rnd(p_now),
         "pressure_trend_6h_hpa": rnd(trend),
+        "cloud_mean_pct": None if mean(cl) is None else int(round(mean(cl))),
     }
 
 
@@ -462,38 +534,138 @@ def main():
         rivers_out.append(item)
 
     # ------------------------------------------------ окна ловли
+    # Сутки делятся на четыре окна: рассвет и закат (фиксированные интервалы
+    # вокруг восхода и захода), день и ночь (промежутки между ними; для них
+    # берётся лучший 3-часовой отрезок). Плюс почасовая лента оценок.
+    DAWN = (timedelta(hours=-1), timedelta(hours=1, minutes=30))
+    DUSK = (timedelta(hours=-1, minutes=-30), timedelta(minutes=30))
+    BLOCK = timedelta(hours=3)
+    horizon = now + timedelta(days=7)
+
+    def near_mouths(pid, at):
+        """Состояние ближних устьев на момент at (с учётом прогноза осадков)."""
+        near = {}
+        for r in cfg["rivers"]:
+            if pid in r["nearby_coastal"]:
+                times, pr = river_series[r["id"]]
+                near[r["name"]] = mouth_state(river_stats(times, pr, at))
+        return near
+
+    def mean_moonlight(p, start, end, s_wx):
+        vals = []
+        t = start.replace(minute=0)
+        while t <= end:
+            vals.append(moonlight(t, p["lat"], p["lon"], s_wx.get("cloud_cover", t)))
+            t += timedelta(hours=1)
+        return rnd(mean(vals), 2)
+
+    def build_window(p, day, kind, light, start, end, s_wx, s_sea, quiet=False):
+        w = {"point": p["id"], "point_name": p["name"], "date": day, "kind": kind,
+             "light": light, "start": fmt(start), "end": fmt(end)}
+        w.update(window_metrics(p["id"], kind, start, end, s_wx, s_sea, quiet=quiet))
+        w["moonlight"] = mean_moonlight(p, start, end, s_wx)
+        w["nearby_mouths"] = near_mouths(p["id"], start.replace(minute=0))
+        prime = [n for n, s in w["nearby_mouths"].items() if s == "prime"]
+        score, reasons, flags = score_window(w, prime, light)
+        w["score"] = score
+        w.update(flags)
+        w["reasons"] = reasons
+        w["moon_illumination_pct"] = moon_phase(start)["illumination_pct"]
+        return w
+
+    def best_block(p, day, kind, light, pstart, pend, s_wx, s_sea):
+        """Лучший 3-часовой отрезок внутри [pstart, pend]: максимум оценки,
+        при равенстве — без грозы, потом более ранний."""
+        first = max(pstart, now_hour)
+        t = first.replace(minute=0)
+        if t < first:
+            t += timedelta(hours=1)
+        cands = []
+        while t + BLOCK <= pend + timedelta(minutes=1):
+            # 3 часа = три почасовых значения t, t+1, t+2.
+            cands.append(build_window(p, day, kind, light, t, t + timedelta(hours=2), s_wx, s_sea, quiet=True))
+            t += timedelta(hours=1)
+        if not cands:
+            return None
+        best = max(cands, key=lambda w: (w["score"], not w["no_go"], -cands.index(w)))
+        best["end"] = fmt(parse_local(best["start"]) + BLOCK)
+        best["period_start"] = fmt(pstart)
+        best["period_end"] = fmt(pend)
+        best["period_thunder_hours"] = sum(1 for c in cands if c["thunder"])
+        # Отрезок чистый, но в соседние часы этого же периода грозы: модель
+        # ошибается со временем гроз на часы, поэтому −1.
+        if not best["no_go"] and best["period_thunder_hours"] > 0:
+            best["score"] = max(1, best["score"] - 1)
+            best["reasons"].append("в другие часы этого периода грозы, время в модели неточное (−1)")
+        best["period_precip_mm"] = round(sum(
+            p_ for p_ in s_wx.between("precipitation", pstart, pend, incl_start=False) if p_ is not None), 1)
+        return best
+
     windows = []
+    sun = {}
     for p in cfg["coastal"]:
         d = daily[p["id"]]
-        s_sea = sea.get(p["marine_id"])
+        s_wx, s_sea = wx[p["id"]], sea.get(p["marine_id"])
+        days = []
         for day, sr, ss in zip(d["time"], d["sunrise"], d["sunset"]):
             if not sr or not ss:
                 warn(f"{p['id']} {day}: нет восхода/захода")
                 continue
-            sr, ss = parse_local(sr), parse_local(ss)
-            for kind, start, end in (("рассвет", sr - timedelta(hours=1), sr + timedelta(hours=1, minutes=30)),
-                                     ("закат", ss - timedelta(hours=1, minutes=30), ss + timedelta(minutes=30))):
-                if end < now or start > now + timedelta(days=7):
+            days.append((day, parse_local(sr), parse_local(ss)))
+        sun[p["id"]] = days
+        for i, (day, sr, ss) in enumerate(days):
+            dawn = (sr + DAWN[0], sr + DAWN[1])
+            dusk = (ss + DUSK[0], ss + DUSK[1])
+            for kind, (start, end) in (("рассвет", dawn), ("закат", dusk)):
+                if end < now or start > horizon:
                     continue
-                w = {"point": p["id"], "point_name": p["name"], "date": day, "kind": kind,
-                     "start": fmt(start), "end": fmt(end)}
-                w.update(window_metrics(p["id"], kind, start, end, wx[p["id"]], s_sea))
-                # Состояние ближних устьев на момент окна (с учётом прогноза осадков).
-                at = start.replace(minute=0)
-                near = {}
-                for r in cfg["rivers"]:
-                    if p["id"] in r["nearby_coastal"]:
-                        times, pr = river_series[r["id"]]
-                        near[r["name"]] = mouth_state(river_stats(times, pr, at))
-                w["nearby_mouths"] = near
-                prime = [n for n, s in near.items() if s == "prime"]
-                score, reasons, flags = score_window(w, prime)
-                w["score"] = score
-                w.update(flags)
-                w["reasons"] = reasons
-                w["moon_illumination_pct"] = moon_phase(start)["illumination_pct"]
-                windows.append(w)
+                windows.append(build_window(p, day, kind, "twilight", start, end, s_wx, s_sea))
+            # День: между рассветным и закатным окном.
+            if dawn[1] < horizon and dusk[0] > now:
+                w = best_block(p, day, "день", "day", dawn[1], dusk[0], s_wx, s_sea)
+                if w:
+                    windows.append(w)
+            # Ночь: от конца заката до начала следующего рассвета; относится к дате вечера.
+            if i + 1 < len(days):
+                nstart, nend = dusk[1], days[i + 1][1] + DAWN[0]
+                if nend > now and nstart < horizon:
+                    w = best_block(p, day, "ночь", "night", nstart, nend, s_wx, s_sea)
+                    if w:
+                        windows.append(w)
     windows.sort(key=lambda w: (w["start"], w["point"]))
+
+    # ------------------------------------------------ почасовая лента
+    def light_at(t, days):
+        for day, sr, ss in days:
+            if sr + DAWN[0] <= t < sr + DAWN[1] or ss + DUSK[0] <= t < ss + DUSK[1]:
+                return "twilight"
+            if sr + DAWN[1] <= t < ss + DUSK[0]:
+                return "day"
+        return "night"
+
+    timeline = {}
+    for p in cfg["coastal"]:
+        s_wx, s_sea = wx[p["id"]], sea.get(p["marine_id"])
+        cols = {k: [] for k in ("time", "light", "score", "no_go", "thunder", "wind_ms", "wind_dir",
+                                "onshore", "wave_m", "precip_mm", "cloud_pct", "moonlight")}
+        t = now_hour
+        while t < horizon:
+            light = light_at(t, sun[p["id"]])
+            m = window_metrics(p["id"], "час", t, t, s_wx, s_sea, quiet=True)
+            if m["wind_mean_ms"] is None and m["wave_mean_m"] is None:
+                # За горизонтом прогноза данных нет — час не оцениваем.
+                t += timedelta(hours=1)
+                continue
+            m["moonlight"] = rnd(moonlight(t, p["lat"], p["lon"], s_wx.get("cloud_cover", t)), 2)
+            prime = [n for n, s in near_mouths(p["id"], t).items() if s == "prime"]
+            sc, _, fl = score_window(m, prime, light)
+            for k, v in (("time", fmt(t)), ("light", light), ("score", sc), ("no_go", fl["no_go"]),
+                         ("thunder", m["thunder"]), ("wind_ms", m["wind_mean_ms"]), ("wind_dir", m["wind_dir"]),
+                         ("onshore", m["onshore"]), ("wave_m", m["wave_mean_m"]), ("precip_mm", m["precip_mm"]),
+                         ("cloud_pct", m["cloud_mean_pct"]), ("moonlight", m["moonlight"])):
+                cols[k].append(v)
+            t += timedelta(hours=1)
+        timeline[p["id"]] = cols
 
     # ------------------------------------------------ точки и SST
     names = {p["id"]: p["name"] for p in cfg["coastal"] + cfg["marine"]}
@@ -525,6 +697,7 @@ def main():
         "moon": moon_phase(now),
         "rivers": rivers_out,
         "windows": windows,
+        "timeline": timeline,
         "sea_surface_temperature_now": sst,
         "warnings": WARNINGS,
     }
@@ -551,7 +724,11 @@ WD = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"]
 
 def short(w):
     d = datetime.fromisoformat(w["date"])
-    return f"{WD[d.weekday()]} {d.day:02d}.{d.month:02d} {w['kind']} {w['start'][11:]}–{w['end'][11:]}"
+    if w["kind"] == "ночь":
+        # Ночь привязана к дате вечера; для человека понятнее «ночь на <следующий день>».
+        n = d + timedelta(days=1)
+        return f"ночь на {WD[n.weekday()]} {n.day:02d}.{n.month:02d} {w['start'][11:16]}–{w['end'][11:16]}"
+    return f"{WD[d.weekday()]} {d.day:02d}.{d.month:02d} {w['kind']} {w['start'][11:16]}–{w['end'][11:16]}"
 
 
 def yn(b):
