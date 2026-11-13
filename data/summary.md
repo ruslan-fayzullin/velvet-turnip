@@ -1,4 +1,4 @@
-# Леврек: сводка на 13.11.2026 16:35 (Стамбул)
+# Леврек: сводка на 13.11.2026 16:46 (Стамбул)
 
 Луна: растущий серп, 14% (полнолуние 2026-11-24, новолуние 2026-12-09). Вода: море у махмутлара 23.7 °C, море у газипаши 23.3 °C, море у демирташа 23.6 °C, море у йешилёза 23.6 °C, море у устья манавгата 23.6 °C.
 
@@ -94,12 +94,6 @@
 
 Dim Çayı: сток частично регулируется плотиной Dim Barajı. Ниже плотины за 48 ч 0.0 мм, выше — 0.0 мм.
 
-Manavgat Irmağı: сток частично регулируется плотиной Dim Barajı. Ниже плотины за 48 ч 3.6 мм, выше — 0.9 мм.
-
-## Предупреждения
-
-- метаданные модели ecmwf_ifs025 недоступны: https://api.open-meteo.com/data/ecmwf_ifs025/static/meta.json... -> HTTP 404: {"reason":"Not Found","error":true}
-- метаданные модели dwd_icon недоступны: https://api.open-meteo.com/data/dwd_icon/static/meta.json... -> HTTP 404: {"error":true,"reason":"Not Found"}
-- метаданные модели ncep_gfs025 недоступны: https://api.open-meteo.com/data/ncep_gfs025/static/meta.json... -> HTTP 404: {"reason":"Not Found","error":true}
+Manavgat Irmağı: сток частично регулируется плотиной Manavgat Barajı (ниже — Oymapınar). Ниже плотины за 48 ч 3.6 мм, выше — 0.9 мм.
 
 Данные: [Open-Meteo.com](https://open-meteo.com/), CC BY 4.0.
