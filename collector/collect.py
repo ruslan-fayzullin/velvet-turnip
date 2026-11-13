@@ -530,6 +530,7 @@ def main():
                     zones[zone] = {k: z[k] for k in ("past_24h_mm", "past_48h_mm", "next_24h_mm")}
             item["zones"] = zones
             item["regulated"] = True
+            item["dam_name"] = r["dam"].get("name")
         if r.get("note"):
             item["note"] = r["note"]
         # Суточные суммы осадков в водосборе (по местной дате; час T относится
@@ -799,7 +800,7 @@ def render_summary(L, now):
             z = r.get("zones", {})
             b, a = z.get("below_dam", {}), z.get("above_dam", {})
             out.append("")
-            out.append(f"{r['name']}: сток частично регулируется плотиной Dim Barajı. "
+            out.append(f"{r['name']}: сток частично регулируется плотиной {r.get('dam_name') or '(без имени)'}. "
                        f"Ниже плотины за 48 ч {b.get('past_48h_mm')} мм, выше — {a.get('past_48h_mm')} мм.")
     if L["warnings"]:
         out += ["", "## Предупреждения", ""] + [f"- {w}" for w in L["warnings"]]
