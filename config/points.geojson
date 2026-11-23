@@ -966,6 +966,77 @@
         "marker-color": "#2ca02c",
         "marker-size": "medium"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.1464,
+          36.4317
+        ]
+      },
+      "properties": {
+        "name": "Риф у лодочного пляжа",
+        "id": "reef",
+        "note": "Место владельца: пляж с лодками, в ~45 м мористее — каменный риф ~150 м вдоль берега (36°25'54\"N 32°08'47\"E = 36.431667, 32.146389), ~3 км к северо-западу от устья Demirtaş Çayı. Морская пара — demirtas_sea (та же ячейка волновой модели).",
+        "type": "coastal",
+        "marker-color": "#d62728",
+        "marker-size": "medium"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.1942,
+          36.3732
+        ]
+      },
+      "properties": {
+        "name": "Мыс у рыбной фермы",
+        "id": "farm_cape",
+        "note": "Место владельца: каменная коса-мыс у ресторана Pisi Balık (36.373244, 32.194182), ~500 м к юго-востоку от устья ручья Yesilöz; садки рыбной фермы ~1 км от берега. Морская пара — yesiloz_sea.",
+        "type": "coastal",
+        "marker-color": "#d62728",
+        "marker-size": "medium"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.2426,
+          36.3175
+        ]
+      },
+      "properties": {
+        "name": "Камни под Газипашой",
+        "id": "rocks",
+        "note": "Любимое место владельца: каменистая бухточка между Йешилёзом и Газипашой (36.31751, 32.24261), мелко 1–2 м; ближайшие устья Delice и Bıçkıcı в 3–4 км к юго-востоку.",
+        "type": "coastal",
+        "marker-color": "#d62728",
+        "marker-size": "medium"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.228,
+          36.303
+        ]
+      },
+      "properties": {
+        "name": "Море у камней под Газипашой",
+        "id": "rocks_sea",
+        "type": "marine",
+        "marker-color": "#17becf",
+        "marker-size": "medium"
+      }
     }
   ]
 }
